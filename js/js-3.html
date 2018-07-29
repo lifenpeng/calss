@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>闭包</title>
+</head>
+<body>
+    <script>
+        var a = 10;
+        function num(){
+            console.log(a,b);
+        }
+        num();
+        var b = 20;
+        num();
+
+        function apple(){
+            console.log(this,this.name);
+        }
+
+        var obj = {
+            name:'junjun'
+        }
+        // call() 改变this指向  现在apple指向 obj 默认指向 window 
+        apple.call(obj);
+
+        //闭包就是函数 可以访问其他函数内部数据
+
+        function foo(){
+            var t1 = '闭包';
+            function fn(){
+                console.log(t1);
+            }
+            //fn();
+            //fn() 时闭包
+            return fn;
+            //fn是闭包 但在foo内部定义不存在实际意义 ，将其作为返回值 交由外部来决定调用时机，更具开发意义
+            //当执行外层函数foo时 才会创建闭包fn
+        }
+        foo();
+    </script>
+</body>
+</html>
