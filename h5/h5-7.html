@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文件读取</title>
+</head>
+<body>
+	<input type="file" id="file1"><!-- 上传css样式文件 -->
+	<input type="file" id="file2"><!-- 上传js文件 -->
+      <input type="file" id="file3"><!-- 上传图片 -->
+	<div></div>
+      <img>
+	<script>
+       var file1 = document.querySelector("#file1");
+       var file2 = document.querySelector("#file2");
+       var file3 = document.querySelector("#file3");
+       //上传文件后触发onchange事件
+       file1.onchange=function(){
+       	    //获取文件
+       		var f = this.files[0];
+       		//创建读取文件对象
+       		var red = new FileReader();
+       		//读取文件
+       		red.readAsText(f);
+       		//获取文件读取后的结果
+       		red.onload=function(){
+            	//创建style标签
+                  	var style = document.createElement('style');
+                  	style.innerHTML=red.result;
+                  	document.querySelector("head").appendChild(style);
+       		}
+       }
+
+       //上传文件后触发onchange事件
+       file2.onchange=function(){
+       	    //获取文件
+       		var f = this.files[0];
+       		//创建读取文件对象
+       		var red = new FileReader();
+       		//读取文件
+       		red.readAsText(f);
+       		//获取文件读取后的结果
+       		red.onload=function(){
+            	//创建style标签
+                  	var script = document.createElement('script');
+                  	script.innerHTML=red.result;
+                  	document.querySelector("head").appendChild(script);
+       		}
+       } 
+       file3.onchange=function(){
+                //获取文件
+                  var f = this.files[0];
+                  //创建读取文件对象
+                  var red = new FileReader();
+                  //读取文件
+                  red.readAsDataURL(f);
+                  //获取文件读取后的结果
+                  red.onload=function(){
+                        console.log(red.result);
+                        var img = document.querySelector("img");
+                        img.src=red.result;
+                  }
+       }        
+	</script>
+</body>
+</html>

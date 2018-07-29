@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>绘制图片</title>
+</head>
+<body>
+  <canvas width="960" height="800" style="border:1px solid pink"></canvas>
+  <script>
+    var c = document.querySelector('canvas');
+    var cxt = c.getContext('2d');
+    var img = document.createElement('img');
+    img.src="timg.jpeg";
+    img.onload=function(){
+      //图片对象 画布中横纵坐标 图片宽高
+      cxt.drawImage(img,100,200,200,100)
+      //图片对象 图片横纵坐标 图片高 宽 图片在画布的横纵坐标 图片显示的宽和高
+      //cxt.drawImage(img,180,50,350,170,100,100,350,170);
+    }
+  </script>
+</body>
+</html>

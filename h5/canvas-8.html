@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>绘制文本</title>
+</head>
+<body>
+  <canvas width="960" height="800" style="border:1px solid pink"></canvas>
+  <script>
+    var c = document.querySelector('canvas');
+    var cxt = c.getContext('2d');
+    //绘制文本 像素和字体
+    cxt.font="50px 微软雅黑";
+    //文本对齐方式
+    cxt.textAlign="center";
+    //设置文本上下对齐方式
+    cxt.textBaseline="middle";
+    //设置阴影颜色
+    cxt.shadowColor='red';
+    //阴影水平方向偏移量
+    cxt.shadowOffsetX=5;
+    cxt.shadowOffsetY=5;
+    //阴影模糊度
+    cxt.shadowBlur=5;
+    //镂空效果
+    cxt.strokeText('Web前端',480,400);
+    //填充文本
+    cxt.fillText('Web前端',480,400);
+  </script>
+</body>
+</html>

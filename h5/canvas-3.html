@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>线性渐变</title>
+</head>
+<body>
+	<canvas width="960" height="800" style="border:1px solid pink"></canvas>
+	<script>
+		var c = document.querySelector("canvas");
+		var cxt = c.getContext('2d');
+
+        //创建渐变方案
+        //起始位置横纵坐标，结束位置横纵坐标
+        var bgd = cxt.createLinearGradient(300,200,600,200);
+        //添加渐变颜色
+        //第一个参数为 0-1
+        bgd.addColorStop(0,"pink");
+        bgd.addColorStop(0.5,"blue");
+        bgd.addColorStop(1,"red");
+        //把渐变方案给strokeStyle
+        cxt.strokeStyle=bgd;
+      
+		cxt.moveTo(300,200);
+		cxt.lineTo(600,200);
+		cxt.lineWidth=20;
+		cxt.stroke();
+	</script>
+</body>
+</html>

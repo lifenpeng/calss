@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>镜像渐变</title>
+</head>
+<body>
+  <canvas width="960" height="800" style="border:1px solid pink"></canvas>
+  <script>
+      var c = document.querySelector('canvas');
+      var cxt = c.getContext('2d');
+      //开始横纵坐标，半径，结束横纵坐标，半径
+      var gdb = cxt.createRadialGradient(480,400,50,480,400,100);
+      gdb.addColorStop(0,'pink');
+      gdb.addColorStop(1,'blue');
+      //填充样式
+      cxt.fillStyle=gdb;
+      cxt.moveTo(100,50);
+      cxt.lineTo(860,50);
+      cxt.lineTo(860,750);
+      cxt.lineTo(100,750);
+      cxt.closePath();
+      cxt.fill();
+  </script>
+</body>
+</html>

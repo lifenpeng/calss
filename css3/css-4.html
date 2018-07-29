@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>cs 其他选择器</title>
+  <style media="screen">
+    /* 目标选择器 找锚点 */
+    p:target{
+      background: pink;
+    }
+    /* 被选中后 */
+    p::selection{
+      background: red;
+    }
+
+    div{
+      width: 100px;
+      height: 85px;
+      border: 2px solid red;
+    }
+    /* 设置第一个字 */
+    div::first-letter{
+      font-size: 24px;
+    }
+    /* 设置第一个行 */
+    div::first-line{
+      background: pink;
+    }
+  </style>
+</head>
+<body>
+<p>最无情的不是人，而是时间</p>
+<p>最无情的不是人，而是时间</p>
+<p>最无情的不是人，而是时间</p>
+<p id="four">最无情的不是人，而是时间</p>
+<p>最无情的不是人，而是时间</p>
+<p>最无情的不是人，而是时间</p>
+<a href="#four">找第四个p标签</a>
+<div>
+  最无情的不是人，而是时间
+</div>
+</body>
+</html>

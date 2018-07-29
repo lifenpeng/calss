@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="data" data-name="君君" data-age="21" data-sex="女"></div>
+
+	<script>
+      //获取自定义属性值
+      var data = document.querySelector("#data").dataset;
+      console.log(data);
+      console.log(data['name']);
+      console.log(data.age);
+      data.height=1.68;
+      console.log(data);
+	</script>
+</body>
+</html>

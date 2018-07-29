@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>画三角与矩形</title>
+</head>
+<body>
+	<canvas width="960" height="800" style="border:1px solid pink"></canvas>
+	<script>
+		//画没有闭合三角
+		var c = document.querySelector("canvas");
+		var cxt = c.getContext('2d');
+		cxt.moveTo(100,200);
+		cxt.lineTo(200,300);
+		cxt.lineTo(100,400);
+		cxt.strokeStyle="pink";
+		cxt.lineWidth=10;
+		//三角形两条线连接处连接方式   round   bevel  miter(默认)
+		cxt.lineJoin="round";
+		//两条线尾巴处样式 
+		cxt.lineCap="round";
+		cxt.stroke();
+		cxt.beginPath();
+
+		//闭合的三角
+
+		cxt.moveTo(100,400);
+		cxt.lineTo(200,500);
+		cxt.lineTo(100,600);
+		//cxt.lineTo(100,400);
+		// closePath 闭合路径 替代 cxt.lineTo(100,400)
+		cxt.closePath();
+		cxt.strokeStyle="pink";
+		cxt.lineWidth=10;
+		//三角形两条线连接处连接方式   round   bevel  miter(默认)
+		cxt.lineJoin="round";
+		cxt.stroke();
+		cxt.beginPath();
+
+		//矩形
+
+		cxt.moveTo(500,100);
+		cxt.lineTo(700,100);
+		cxt.lineTo(700,300);
+		cxt.lineTo(500,300);
+		cxt.closePath();
+		cxt.strokeStyle="blue";
+		cxt.lineWidth=10;
+		cxt.stroke();
+		cxt.beginPath();		
+	</script>
+</body>
+</html>

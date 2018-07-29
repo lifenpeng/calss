@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型链</title>
+</head>
+<body>
+    <script>
+       function person(){}
+       function son(){}
+       var s = new son();
+       person.prototype=s;
+       console.log(person.prototype);
+       console.log(son.prototype)
+
+       person.prototype.name='junjun';
+       console.log(s.name);
+       var p = new person();
+       console.log(p.name);
+       son.prototype.age='21';
+       console.log(p.age);
+       Object.prototype.sex='女';
+       console.log(p.sex);
+
+
+       //person.prototype->son().prototype->object.prototype->null
+
+       function phone(){
+
+       }
+
+       phone.prototype.tel=()=>{
+               console.log('tel');
+           }
+
+       function phones(){
+
+       }
+       phones.prototype=new phone();
+
+       phones.prototype.music=()=>{
+               console.log('music');
+           }
+
+       function phonePlus(){
+
+       }
+       phonePlus.prototype=new phones();
+
+       phones.prototype.internet=()=>{
+               console.log('internet');
+           }
+
+       var ph = new phonePlus();
+       ph.tel();
+       ph.music();
+       ph.internet();
+       
+    </script>
+</body>
+</html>

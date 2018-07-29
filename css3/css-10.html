@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>动画</title>
+  <style media="screen">
+    div{
+      width: 0px;
+      height: 0px;
+      border-top: 100px dashed pink;
+      border-left: 100px dashed red;
+      border-right: 100px dashed blue;
+      border-bottom: 100px dashed green;
+      border-radius: 50%;
+      /* 使用动画集名字 */
+      animation-name: rotate;
+      animation-duration: 2s; /* 秒数 */
+      animation-iteration-count: infinite; /* 动画执行的次数 */
+      animation-timing-function: linear; /* 匀速 设置动画速度 */
+      /* animation-direction: alternate; /* 动画逆播 */
+      animation-delay: 1s; /* 延时 */
+    }
+
+    div:hover{
+      animation-play-state: paused; /* 鼠标进入停止播放 */
+    }
+
+    /* 定义一个动画集 */
+    /* @keyframes 动画集名字 */
+    @keyframes rotate {
+       from{
+         transform: rotateZ(0deg);
+       }
+       to{
+         transform: rotateZ(360deg);
+       }
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>

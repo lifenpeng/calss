@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>flex 布局</title>
+  <style media="screen">
+     #box {
+       width: 500px;
+       height: 500px;
+       border: 1px solid red;
+       margin: 0 auto;
+       display: flex;
+       justify-content: flex-start; /*默认从左向右*/
+       justify-content: flex-end; /* 从右向左 */
+       justify-content: center; /* 中间显示 */
+       justify-content: space-between; /* 两端对齐 */
+       justify-content: space-around; /* 两边空白 环绕对齐 */
+
+       align-items: center;
+       align-content: flex-start; /* 子元素换行后有空白 去除空白 */
+     }
+
+     #box div {
+       /* flex: 1; */
+       width: 100px;
+       height: 100px;
+     }
+     #t1 {
+       background: pink;
+     }
+     #t2 {
+       background: red;
+     }
+     #t3 {
+       background: blue;
+     }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <div id="t1"></div>
+    <div id="t2"></div>
+    <div id="t3"></div>
+  </div>
+</body>
+</html>

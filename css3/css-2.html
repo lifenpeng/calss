@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>边框圆角与阴影及文本</title>
+  <style>
+    div {
+      width: 300px;
+      height: 300px;
+      background: pink;
+      float: left;
+      margin-right: 20px;
+    }
+    #t1 {
+      border-radius: 10px 20px; /* 左上 右下 */
+      box-shadow: 10px 20px 5px red inset;/*水平 垂直 模糊度 阴影颜色 inset(内部阴影) 不写默认为外部阴影*/
+    }
+    #t2 {
+      border: 20px solid red;
+      /* 选择图片作为边框背景 */
+      border-image-source: url('timg.jpeg');
+      /* 切割图片 */
+      border-image-slice: 35;
+      border-image-repeat: round;/*(round 铺满) (repeat 平铺)(stretch 默认 拉伸) */
+    }
+    #t3 {
+      font-size: 24px;
+      text-align: center;
+      line-height: 300px;
+      text-shadow: 10px 20px 5px red;/*水平 垂直 模糊度 阴影颜色*/
+    }
+  </style>
+</head>
+<body>
+<div id="t1"></div>
+<div id="t2"></div>
+<div id="t3">Web前端工程师</div>
+</body>
+</html>

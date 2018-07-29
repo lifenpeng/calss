@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>绘制弧度</title>
+</head>
+<body>
+   <canvas width="960" height="800" style="border:1px solid pink"></canvas>
+   <script>
+     var c = document.querySelector("canvas");
+     var cxt = c.getContext('2d');
+     //圆心坐标 半径 开始的弧度 结束弧度 默认顺时针（false） 开始弧度为0  结束弧度 2*Math.PI=360度 正好转一圈
+     //如果开始弧度不为0  圆会有缺口
+     cxt.arc(200,150,50,0,2*Math.PI,false);
+     cxt.stroke();
+   </script>
+</body>
+</html>

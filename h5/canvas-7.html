@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>矩形移动</title>
+</head>
+<body>
+  <canvas width="960" height="800" style="border:1px solid pink"></canvas>
+  <script>
+    var c = document.querySelector('canvas');
+    var cxt = c.getContext('2d');
+    //开始坐标
+    var x = 0;
+    //每次移动的量
+    var step = 5;
+    //控制移动方向
+    var i = 1;
+    setInterval(function(){
+      //清理画布
+      cxt.clearRect(0,0,c.width,c.height);
+
+      cxt.fillStyle='pink';
+      //绘制矩形 横纵坐标，长和宽
+      cxt.fillRect(x,100,100,200);
+      cxt.fill();
+      //控制横坐标
+      x+=step*i;
+      if(x>c.width-100){
+        i=-1;
+      }else if(x<=0){
+        i=1;
+      }
+    },100)
+  </script>
+</body>
+</html>

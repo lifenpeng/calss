@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<style>
+button {
+  height: 25px;
+  background: #00CCCC;
+  color: #fff;
+  padding: 0 5px;
+  text-align: center;
+  line-height: 25px;
+}
+
+#load {
+  width: 480px;
+  height: 10px;
+  border: 1px solid #000;
+  cursor: pointer;
+  float: left;
+}
+
+#loads {
+  height: 10px;
+  background: red;
+}
+
+#controls {
+  width: 520px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+time {
+  float: left;
+  margin-left: 5px;
+}
+</style>
+
+<body>
+	<!-- 
+	controls 播放控件
+	autoplay 自动播放 chome 有问题 火狐没问题 
+	loop 循环播放 
+    -->
+	<audio src="sheep.mp3" controls loop></audio><br />
+	<!-- 
+	controls 播放控件
+	autoplay 自动播放 chome 浏览器可能会出现问题 muted 可以解决视频在谷歌播放问题 但没有声音
+	loop 循环播放 
+    -->
+	<video id="myVideo" width="480" autoplay="autoplay" loop>
+       <source src="sheep.mp4" type="video/mp4" />
+       对不起，您的浏览器不支持，请升级！
+	</video><br />
+	<button id="videoPlay">播放/暂停</button><br />
+	<div id="controls">
+		<div id="load"><div id="loads"></div></div>
+		<time id="time"></time>
+	</div>
+</body>
+
+<script>
+
+   window.onload = function(){
+	   var video = document.getElementById("myVideo");
+	   var videoPlay = document.getElementById("videoPlay");
+	   var load = document.getElementById("load");
+	   var loads = document.getElementById("loads");
+	   var time = document.getElementById("time");
+
+	   loads.style.width='0%';
+
+	   load.onclick=function(){
+	       var oEvent = event;
+	       var width = load.offsetWidth-2;
+	       var loadX = oEvent.clientX/width;
+	       var videoTime = video.duration*loadX;
+	       loads.style.width=loadX*100+'%';
+	       video.currentTime=videoTime;
+	   }
+
+	   videoPlay.onclick=function(){
+	      if(video.paused){
+	      	video.play();
+	      }else{
+	        video.pause();
+	      }
+	   }
+
+	   var i=0;
+	   var s=0;
+	   var videoTime = 0;
+
+	   setInterval(function(){
+           add();
+           i = parseInt(videoTime/60);
+		   s = parseInt(videoTime-i*60);    
+		   time.innerHTML=`${i}:${s<10 ? '0' + s : s }`;
+		   loads.style.width=video.currentTime/video.duration*100+"%";
+	   },1000);
+
+	   function reduce(){
+	   	   videoTime = video.duration - video.currentTime;
+	   }
+
+	   function add(){
+           videoTime = video.currentTime;
+	   }
+
+   }
+
+   
+</script>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>2D转换</title>
+    <style media="screen">
+      #p{
+        width: 500px;
+        height: 500px;
+        background: pink;
+      }
+      #c {
+        width: 150px;
+        height: 150px;
+        background: red;
+        margin: 0 auto;
+      }
+      #p:hover #c{
+        /* 横坐标位移，相对于原来的位置 */
+        /* transform: translate(100px); */
+        /* 横纵坐标位移 */
+        /* transform: translate(100px,100px); */
+        /* 旋转 */
+        /* transform: rotate(60deg); */
+        /* 缩小和放大 宽度为原来的0.2倍 宽度为原来2倍*/
+        /* transform: scale(0.2,2); */
+        /* 沿着x轴倾斜了30度，也沿着x轴倾斜了30度 */
+        transform: skew(30deg,30deg);
+      }
+    </style>
+  </head>
+  <body>
+  <div id="p">
+    <div id="c"></div>
+  </div>
+  </body>
+</html>

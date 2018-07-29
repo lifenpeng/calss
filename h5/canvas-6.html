@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>虚线</title>
+</head>
+<body>
+  <canvas width="960" height="800" style="border:1px solid pink"></canvas>
+  <script>
+    var c = document.querySelector('canvas');
+    var cxt = c.getContext('2d');
+    cxt.moveTo(100,200);
+    cxt.lineTo(600,200);
+    cxt.strokeStyle='#000';
+    cxt.setLineDash([20,20]);
+    cxt.stroke();
+  </script>
+</body>
+</html>

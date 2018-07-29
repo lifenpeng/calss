@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>h5 存储</title>
+</head>
+<body>
+	<script>
+		//sessionStorage 当用户关闭浏览器窗口后，数据会被删除
+		//设置值
+		window.sessionStorage.setItem('name', '君君');
+		window.sessionStorage.setItem('age', '21');
+		window.sessionStorage.setItem('sex', '女');
+        //获取数据
+		var res1 = sessionStorage.getItem("name");
+		var res2 = sessionStorage.getItem("age");
+		var res3 = sessionStorage.getItem("sex");
+
+		console.log(res1,res2,res3);
+		//清空数据
+        window.sessionStorage.clear();
+
+        //localStorage 方法存储的数据没有时间限制。第二天、第二周或下一年之后，数据依然可用。
+        //其他方法同上
+        window.localStorage.setItem('value', '520');
+	</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<style>
+	.demon {
+       width: 500px;
+       height: 200px;
+       background: red;
+	}
+</style>
+
+<body>
+	<button id="btn1">添加类样式</button>
+	<button id="btn2">移除类样式</button>
+	<button id="btn3">切换类样式</button>
+	<button id="btn4">是否应用了类样式</button>
+	<div id="demon"></div>
+	<script>
+       my$("btn1").onclick=function(){
+          my$("demon").classList.add("demon");
+       }
+       my$("btn2").onclick=function(){
+          my$("demon").classList.remove("demon");
+       }
+       my$("btn3").onclick=function(){
+          my$("demon").classList.toggle("demon");
+       }
+       my$("btn4").onclick=function(){
+          var res = my$("demon").classList.contains("demon");
+          if(res){
+            alert("true");
+	      }else{
+	        alert("false");
+	      }
+       }
+       function my$(id){
+         return document.getElementById(id);
+       }
+	</script>
+</body>
+</html>

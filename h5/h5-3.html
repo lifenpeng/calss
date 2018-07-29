@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="" method="get" id="form">
+		<!-- autofocus input自动获取光标 -->
+		<!-- placeholder 文本框提示信息 -->
+		<!-- required 文本框必须输入内容 -->
+		邮箱：<input type="email" placeholder="请输入邮箱地址！" required="required"><br />
+		网址：<input type="url"><br />
+		数字：<input type="number"><br />
+		密码：<input type="password"><br />
+		电话：<input type="tel"><br />
+		<input type="submit">
+	</form>
+	<!-- input 不再form表单 但还是想提交 form 等于 表单id-->
+	datalist：<input type="text" form="form" list="url_list">
+
+    <!-- input 下拉列表 datalist id值 等于 input list 值 -->
+
+	<datalist id="url_list">
+		<option value="www.baidu.com">baidu</option>
+		<option value="www.google.com">google</option>
+		<option value="www.qq.com">qq</option>
+		<option value="www.taobao.com">taobao</option>
+	</datalist>
+</body>
+</html>

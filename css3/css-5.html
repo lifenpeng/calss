@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>c3 伪类选择器</title>
+  <style media="screen">
+    ul{
+      list-style-type: none;
+      cursor: pointer;
+    }
+    li{
+      width: 300px;
+      border:1px solid pink;
+    }
+    /* 所有li中第一个 */
+    li:first-child{
+      background: red;
+    }
+    /* 所有li中最后一个 */
+    li:last-child {
+      background: #000;
+    }
+    /* 前面第3个li  nth-last-child() 从后面数第几个 */
+    li:nth-child(3){
+      background: blue;
+    }
+    /* 奇偶数形式 */
+    li:nth-child(odd){
+      color: yellow;
+    }
+  </style>
+</head>
+<body>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+</ul>
+</body>
+</html>

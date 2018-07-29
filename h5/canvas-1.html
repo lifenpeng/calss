@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>横线</title>
+</head>
+<body>
+	<canvas width="960" height="600" style="border:1px solid pink"></canvas>
+	<script>
+		//获取画布
+		var c = document.querySelector("canvas");
+		//为2d图像
+		var cxt = c.getContext('2d');
+		//起始位置
+		cxt.moveTo(100,300);
+		//结束位置
+		cxt.lineTo(300,300);
+		//设置线的颜色
+		cxt.strokeStyle="red";
+		//设置线的宽度
+		cxt.lineWidth=10;
+		//绘制
+		cxt.stroke();
+		//重置路径 防止画下一个画时相互影响
+		cxt.beginPath();
+
+		cxt.moveTo(100,400);
+		cxt.lineTo(300,400);
+		cxt.strokeStyle="pink";
+		cxt.lineWidth=10;
+		cxt.stroke();
+		cxt.beginPath();
+	</script>
+</body>
+</html>

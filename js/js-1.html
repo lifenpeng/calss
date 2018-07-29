@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>对象</title>
+</head>
+<body>
+  <div id="dom"></div>
+  <script>
+    //原型继承
+    function person(name,age){
+      this.name=name;
+      this.age=age;
+    }
+
+    //给person原型 添加say()
+    person.prototype.say = function () {
+      console.log(`你好我是${this.name},今年${this.age}岁！`);
+    };
+
+    var junjun = new person('junjun','21');
+    junjun.say();
+    var xiaoxiao = new person('xiaoxiao','18');
+    xiaoxiao.say();
+
+    //类式继承
+    function tel(name,color){
+       this.name=name;
+       this.color=color;
+    }
+
+
+    function phone(name,color,music){
+       tel.call(this,name,music);
+       console.log(name,color,music);
+    }
+
+    new phone('iphone','red','sheep');
+
+    //entend继承
+
+    function extend(child,parent){
+        for(pro in parent){
+            //判断 pro 属性是否为 parent 自有属性  防止把原型属性添加给 child
+            if(parent.hasOwnProperty(pro)){
+                child[pro] = parent[pro];
+            }
+        }
+    }
+
+    var phone = {
+      tel:()=>{
+        console.log('tel');
+      }
+    }
+
+    var phonePlus = {
+      music:()=>{
+        console.log('music');
+      }
+    }
+
+    extend(phonePlus,phone);
+
+    phonePlus.tel();
+
+    function demon1(){
+
+    }
+
+    function demon2(){
+      this.print=function(){
+        console.log('true');
+      }
+    }
+
+    demon2.prototype.flag=true;
+
+    var d1 = new demon1();
+    var d2 = new demon2();
+
+    extend(d1,d2);
+
+    d1.print();
+
+    console.log(d1.flag,d2.flag);
+
+
+  </script>
+</body>
+</html>

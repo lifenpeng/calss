@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>c3 属性选择器</title>
+  <style media="screen">
+    /* p后面所有ul */
+    p~ul{
+      background: pink;
+    }
+    /* 具有href属性 并且值中有j开头 */
+    a[href^="j"]{
+      background: red;
+    }
+    /* 具有href属性 并且值以a结尾 */
+    a[href$="a"]{
+      background: blue;
+    }
+    /* 具有href属性 并且值包含x */
+    a[href*="x"]{
+      background: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="cls">
+    <p>最无情是时间</p>
+    <ul>
+      <li><a href='junjun'>junjun</a></li>
+      <li><a href='xiaoxiao'>xiaoxiao</a></li>
+      <li><a href='huahua'>huahua</a></li>
+      <li><a href='xixi'>xixi</a></li>
+      <li><a href='keke'>keke</a></li>
+      <li><a href='jiaojiao'>jiaojiao</a></li>
+    </ul>
+  </div>
+</body>
+</html>
