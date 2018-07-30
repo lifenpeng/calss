@@ -7,6 +7,14 @@
     <title>闭包</title>
 </head>
 <body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul> 
     <script>
         var a = 10;
         function num(){
@@ -40,6 +48,25 @@
             //当执行外层函数foo时 才会创建闭包fn
         }
         foo();
+
+        var li = document.querySelectorAll("li");
+        console.log(li);
+        function creatLi(){
+            for(var i=0;i<li.length;i++){
+                // (function(v){
+                //    li[v].onclick = function(){
+                //        console.log(li[v].innerHTML);
+                //    }
+                // })(i);
+                function on(v){
+                   li[v].onclick = function(){
+                       console.log(li[v].innerHTML);
+                   }
+                }
+                on(i);
+            }
+        }
+        creatLi();
     </script>
 </body>
 </html>
