@@ -97,6 +97,20 @@
             win.info('true').hide();
         }
 
+    //模板方法
+    function phone(){}
+    phone.prototype = {
+        msg:function(){
+            console.log('msg');
+        }
+    }
+
+    function phonePlus(){}
+
+    phonePlus.prototype = new phone();
+
+    new phonePlus().msg();
+
     </script>
 </body>
 </html>
