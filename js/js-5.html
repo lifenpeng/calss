@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>运动框架</title>
+</head>
+<body>
+    <div id="div" style="width: 50px; height: 50px; border: 1px solid red; position: absolute; top:30px;"></div>
+    <script>
+       (function(){
+           var pubArr = [];
+           var push = pubArr.push;
+           var slice = pubArr.slice;
+           var forEach = pubArr.forEach;
+
+           function select(query){
+               return new select.prototype.init(query);
+           }
+
+           select.prototype = {
+               length:0,
+               splice:function(){
+
+               },
+               get:function(index){
+                   index = (index + this.length) % this.length;
+                   return this[index];
+               },
+               eq:function(index){
+                   return select(this.get(index));
+               },
+               echo:function(callback){
+                   forEach.call(this,callback);
+                   return this;
+               },
+               extends:function(){
+                   if(arguments.length==0){
+                       return;
+                   }
+                   for(var i = 0,l = arguments.length;i<l;i++){
+                       obj = arguments[i];
+                       for(var k in obj){
+                           if(obj.hasOwnProperty(k)){
+                               this[k] = obj[k];
+                           }
+                       }
+                   }
+               }
+           }
+
+           var init = select.prototype.init = function (query){
+
+               var dom;
+               if(query.nodeName){
+                   dom = [query];
+               }else if(query instanceof Array || typeof query == 'object' &&
+               query.length>0 && (query.length - 1) in query){
+                   dom = query;
+               }else{
+                   dom = document.querySelectorAll(query);
+               }
+
+               push.apply(this,dom);
+           }
+
+           init.prototype = select.prototype;
+
+           select.fn = init.prototype = select.prototype;
+
+           select.fn.extends({
+               moveTo:function(target){
+                   this.echo(function(el){
+                       var speed,cur;
+                       var flag = true;
+                       clearInterval(el.timer);
+                       el.timer = setInterval(function(){
+                           for(var attr in target){
+                            cur = parseInt(getComputedStyle(el)[attr]);
+                            speed = target[attr] - cur;
+                            speed = speed /8;
+                            speed = speed > 0 ? Math.ceil(speed):Math.floor(speed);
+                            if(cur !== target[attr]){
+                                flag = false;
+                            }
+                            el.style[attr] = cur + speed + 'px';
+                            if(flag){
+                                clearInterval(el.timer);
+                            } 
+                           }
+                       },50)
+                   })
+               }
+           })
+
+            //对外暴露接口
+            window._S = select;
+           
+       })()
+
+       function move(){
+            _S('div').moveTo({left:400});
+       }
+
+       move();
+
+    </script>
+</body>
+</html>
