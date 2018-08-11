@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax</title>
+</head>
+<body>
+    <input type="button" value="ajax">
+    <script>
+    function $(option){
+           var xhr = new XMLHttpRequest();
+
+           xhr.open(option.type,option.url);
+
+           xhr.setRequestHeader("Contnet-Type","application/x-www-form-urlencoded");
+
+           xhr.send(option.data);
+
+           xhr.onreadystatechange=function(){
+               //获取到一个状态 0，1，2，3，4  4代表获取数据成功
+               //ststus=200 数据获取成功
+               //xhr.status == 200
+               if(xhr.readyState==4){
+                    var data = JSON.parse(xhr.responseText);
+                    return option.success(data);
+               }
+           }
+    }
+
+    $({
+      url:'data.json',
+      type:'get',
+      data:null,
+      success:function(data){
+          console.log(data);
+      }
+    });
+    </script>
+</body>
+</html>
