@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>D3js</title>
+</head>
+<body>
+    <script src="d3.js"></script>
+    <script>
+        var data = [15,14,8,4,5,2,2,1];
+
+        var width = 600;
+        var height = 600;
+
+        var svg = d3.select('body').append('svg').attr('width',width).attr('height',height);
+
+        d3.select('svg').style('padding','20px');
+
+        var xScale = d3.scaleBand().domain(["java","c","c++","c#","python","php","javaScript","go"])
+                       .rangeRound([0,width]);
+        
+        var xAxis = d3.axisBottom(xScale);
+
+        var yScale = d3.scaleLinear().domain([0,100]).range([height,0]);
+
+        var yAxis = d3.axisLeft(yScale);
+        
+        svg.append('g').attr("transform","translate(20,"+height+")").call(xAxis);
+
+        svg.append('g').attr("transform","translate(20,0)").call(yAxis);
+
+        svg.selectAll('rect').data(data).enter().append('rect')
+                             .attr('fill','pink')
+                             .attr('width',xScale.step()-xScale.step()/2)
+                             .attr('height',function(h){
+                                 return height - yScale(h);
+                             })
+                             .attr('x',function(h,i){
+                                 console.log(i,xScale.step());
+                                 return i*xScale.step()+20+xScale.step()/4;
+                             })
+                             .attr('y',function(h,i){
+                                 return yScale(h);
+                             })
+
+    </script>
+</body>
+</html>
